@@ -1,7 +1,8 @@
 # ML Deployment Website
 
 Primitive and simplistic code for a website I made to test ML models and algorithms.
-\
+
+<br>
 
 ## Homepage
 ![Homepage](images/homepage.jpg)

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    </head>
+    <body>
+        <div>
+            <h1>Music</h1>
+        </div>
+        <form action="{{ url_for('home') }}">
+            <button type="submit">Back</button>
+            <TEXTAREA id="recommendation" NAME="home" ROWS=2 COLS=75></TEXTAREA>
+            <input type="text" onkeyup="myFunction()" id="search" placeholder="Search..">
+        </form>
+        <table id="music_table">
+            <thead>
+                <tr>
+                    <th align="left">Song Names</th>
+                    <th align="right">Popularity Score</th>
+                </tr>
+            </thead>
+            <div>
+                <form id="formularry" action="{{ url_for('goto_music') }}" method="post">
+                    <button type="button" onclick="displayRadioValue()">Show Selection</button>
+                    <button type="submit">Get Recommendation</button>
+                    {% for row in dbhtml %}
+                        <tr class="block">
+                            <td><input type="radio" name="music_name" id="music_name" value="{{row.0}}" checked="checked">{{row.0}}</td>
+                            <td>{{row.1}}</td>
+                        </tr>
+                    {% endfor %}
+                    <a href="{{ url_for('goto_music') }}">Refresh</a>
+                </form>
+            </div>
+        </table>
+    </body>
+    <button>Load More</button>
+    <script>
+        function displayRadioValue() {
+            var ele = document.getElementsByName('music_name');
+
+            for (i = 0; i < ele.length; i++) {
+                if (ele[i].checked) {
+                    ele_value = ele[i].value
+                    document.getElementById("recommendation").innerHTML = ele_value;
+                }
+            }
+        }
+        function myFunction() {
+          // Declare variables
+          var input, filter, table, tr, td, i, txtValue;
+          input = document.getElementById("search");
+          filter = input.value.toUpperCase();
+          table = document.getElementById("music_table");
+          tr = table.getElementsByTagName("tr");
+
+          // Loop through all table rows, and hide those who don't match the search query
+          for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+              txtValue = td.textContent || td.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+              } else {
+                tr[i].style.display = "none";
+              }
+            }
+          }
+        }
+    </script>
+</html>

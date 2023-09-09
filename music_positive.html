@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+    </head>
+    <body>
+        <form action="{{ url_for('goto_music') }}">
+            <button type="submit">Back</button>
+        </form>
+        <form action="{{ url_for('home') }}">
+            <button type="submit">Home</button>
+        </form>
+        <div class="music">
+        <h2><u>Recommendations:</u></h2>
+        <p>Showing results for: {{ search_name }}</p>
+        <table class="music_table">
+            <tr>
+                <th>Song Names</th>
+            </tr>
+            <tbody class="table_body">
+                <tr>
+                    <td>{{ music_names[0] }}</td>
+                </tr>
+                <tr>
+                    <td>{{ music_names[1] }}</td>
+                </tr>
+                <tr>
+                    <td>{{ music_names[2] }}</td>
+                </tr>
+                <tr>
+                    <td>{{ music_names[3] }}</td>
+                </tr>
+                <tr>
+                    <td>{{ music_names[4] }}</td>
+                </tr>
+                <tr>
+                    <td>{{ music_names[5] }}</td>
+                </tr>
+                <tr>
+                    <td>{{ music_names[6] }}</td>
+                </tr>
+                <tr>
+                    <td>{{ music_names[7] }}</td>
+                </tr>
+                <tr>
+                    <td>{{ music_names[8] }}</td>
+                </tr>
+                <tr>
+                    <td>{{ music_names[9] }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </body>
+</html>

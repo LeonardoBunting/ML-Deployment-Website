@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+        </script>
+    </head>
+    <body>
+        <div>
+            <h1>Movies</h1>
+        </div>
+        <form action="{{ url_for('home') }}">
+            <button type="submit">Back</button>
+            <TEXTAREA id="recommendation" NAME="home" ROWS=2 COLS=64></TEXTAREA>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th align="left">Movie Titles</th>
+                    <th align="left">Genres</th>
+                </tr>
+            </thead>
+            <form id="formularry" action="{{ url_for('goto_movies') }}" method="post">
+                <button type="button" onclick="displayRadioValue()">Show Selection</button>
+                <button type="submit">Get Recommendation</button>
+                {% for row in dbhtml %}
+                    <tr>
+                        <td><input type="radio" name="movie_name" id="movie_name" value="{{row.0}}" checked="checked">{{row.0}}</td>
+                        <td>{{row.1}}</td>
+                    </tr>
+                {% endfor %}
+                <a href="{{ url_for('goto_movies') }}">Refresh</a>
+            </form>
+        </table>
+    </body>
+    <script>
+        function displayRadioValue() {
+            var ele = document.getElementsByName('movie_name');
+
+            for (i = 0; i < ele.length; i++) {
+                if (ele[i].checked) {
+                    ele_value = ele[i].value
+                    document.getElementById("recommendation").innerHTML = ele_value;
+                }
+            }
+        }
+    </script>
+</html>

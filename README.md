@@ -2,6 +2,8 @@
 
 Primitive and simplistic code for a website I made to test ML models and algorithms.
 \
+The datasets and their sources will be added in the future.
+<br>
 [Note]: I'm not focusing on front-end or back-end development in this project. It's mainly to highlight the models.
 
 <br>
@@ -16,3 +18,5 @@ I showcased "Music" because it is the best model I made thus far between these s
 
 ## Recommendation Page
 ![recpage](images/recommendation_page.jpg)
+\
+The exact code for the algorithm can be found in "flask_app.py".

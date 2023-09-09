@@ -2,15 +2,15 @@
 
 Primitive and simplistic code for a website I made to test ML models and algorithms.
 \
+\
 Link to the website:
   \
   http://oinvornptcknt.pythonanywhere.com/
   \
 <br>
-<br>
-[Note]: I'm not focusing on front-end or back-end development in this project. It's mainly to highlight the models.
-
-<br> **_The datasets and their sources will be added in the future._** 
+[Note]:
+1) I'm not focusing on front-end or back-end development in this project. It's mainly to highlight the models.
+2) **_The datasets and their sources will be added in the future._** 
 <br>
 <br>
 
